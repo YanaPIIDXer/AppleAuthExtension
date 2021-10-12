@@ -13,7 +13,7 @@ namespace AppleAuthExtension
     /// <summary>
     /// Apple認証
     /// </summary>
-    public class AppleAuth : MonoBehaviour
+    public class AppleAuthenticate : MonoBehaviour
     {
         /// <summary>
         /// CompletionSource
@@ -37,7 +37,7 @@ namespace AppleAuthExtension
             if (!AppleAuthManager.IsCurrentPlatformSupported) { throw new AppleAuthNotSupportedException(); }
 
             GameObject obj = new GameObject("AppleAuth");
-            var auth = obj.AddComponent<AppleAuth>();
+            var auth = obj.AddComponent<AppleAuthenticate>();
 
             auth.completionSource = new UniTaskCompletionSource<ICredential>();
             auth.authManager = new AppleAuthManager(new PayloadDeserializer());

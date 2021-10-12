@@ -23,7 +23,7 @@ public class Sequence : MonoBehaviour
         {
             try
             {
-                var result = await AppleAuthExtension.AppleAuth.SignIn(LoginOptions.IncludeEmail | LoginOptions.IncludeFullName, null, this.GetCancellationTokenOnDestroy());
+                var result = await AppleAuthenticate.SignIn(LoginOptions.IncludeEmail | LoginOptions.IncludeFullName, null, this.GetCancellationTokenOnDestroy());
                 var credential = result as IAppleIDCredential;
                 mainScreen.SetResultText(credential.IdentityToken.ToString());
             }
