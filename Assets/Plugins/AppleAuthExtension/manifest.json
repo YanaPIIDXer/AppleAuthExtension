@@ -1,0 +1,12 @@
+{
+    "name": "com.yanap.appleauthextension",
+    "displayName": "AppleAuthExtension",
+    "version": "1.0.0",
+    "unity": "2019.4",
+    "description": "Apple認証ライブラリ「apple-signin-unity」を使いやすくする為の拡張ライブラリ",
+    "license": "MIT",
+    "dependencies": {
+        "com.lupidan.apple-signin-unity": "1.4.2",
+        "com.cysharp.unitask": "2.2.5"
+    }
+}
