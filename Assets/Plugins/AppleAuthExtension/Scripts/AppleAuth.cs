@@ -34,6 +34,8 @@ namespace AppleAuthExtension
         /// <returns>ICredential</returns>
         public static UniTask<ICredential> SignIn(LoginOptions logInOptions, string nonce = null, CancellationToken token = default)
         {
+            if (!AppleAuthManager.IsCurrentPlatformSupported) { throw new AppleAuthNotSupportedException(); }
+
             GameObject obj = new GameObject("AppleAuth");
             var auth = obj.AddComponent<AppleAuth>();
 
@@ -52,17 +54,6 @@ namespace AppleAuthExtension
                 throw exception;
             });
             return auth.completionSource.Task;
-        }
-
-        void Start()
-        {
-            if (!AppleAuthManager.IsCurrentPlatformSupported)
-            {
-                var exception = new AppleAuthNotSupportedException();
-                completionSource.TrySetException(exception);
-                Destroy(gameObject);
-                throw exception;
-            }
         }
 
         void Update()
